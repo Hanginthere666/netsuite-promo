@@ -1,0 +1,368 @@
+/* Global styles */
+body {
+  font-family: 'Microsoft YaHei', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+a {
+  text-decoration: none;
+  color: #CBAF6D;
+  font-weight: 700;
+  /* 让字体加粗，700 等同于 bold */
+}
+
+a:hover {
+  color: #D8DBE5;
+}
+/*el-header*/
+#header{
+  padding: 0 0px;
+}
+
+/* banner */
+#banner {
+  height: auto;
+  /* 允许高度自适应 */
+  overflow: hidden;
+  /* 确保内容不溢出 */
+  background: linear-gradient(135deg, #ffffff);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+banner img {
+  width: 100%;
+  height: auto;
+  /* 允许高度自适应 */
+  object-fit: contain;
+  /* 确保图片完全展示而不被遮挡 */
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2F3968;
+  /* 设置为半透明 */
+  /*导航栏颜色 备用1：#4a7a6e  #2F3968 #e8e8e8*/
+  padding: 5px 30px;
+}
+
+nav .logo img {
+  width: 168px;
+  height: 48px;
+}
+
+nav a {
+  margin-left: 20px;
+}
+
+/* Consulting Section */
+#consulting {
+  padding: 50px 0px ;
+  /* background: white; */
+  margin: 20px auto;
+  width: 93%;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.consulting-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  /* 添加最大宽度和边距使其居中 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  position: relative; /* 添加相对定位 */
+}
+
+.special-tag {
+  position: absolute;
+  right: -40px; /* 调整到标题右侧 */
+  top: -10px;
+  width: 80px;
+  height: auto;
+  z-index: 1; /* 确保标签在上层 */
+}
+
+/* 服务器服务区 */
+#serversText {
+  text-align: center;
+  padding: 50px 20px;
+  background: white;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 服务器服务项 */
+.server-service {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 默认行：左右对齐 */
+.server-row {
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+/* 反向排列 */
+.server-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 服务器专用图片样式，避免影响 CONSULTING */
+.servers-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 文字区域 */
+.service-text {
+  width: 80%;
+  text-align: left;
+  margin: 0 auto;  /* 使用 margin: 0 auto 实现水平居中 */
+}
+
+.service-text h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.service-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .server-row.reverse {
+    flex-direction: column-reverse;
+  }
+  
+  .server-row {
+    flex-direction: column;
+  }
+
+  .servers-img {
+    width: 80%;
+  }
+
+  .service-text {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+/* Customer Logos */
+#customers {
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.logo-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-wrapper {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+/* 添加重复的logo */
+.logo-wrapper::after {
+  content: "";
+  display: flex;
+  width: max-content;
+  background: linear-gradient(to right, transparent 0%, transparent 100%);
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  margin: 0 40px;
+}
+
+.logo-item img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-50%);
+  }
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input,
+textarea,
+button {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: #ff8c42;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff3e6c;
+}
+
+/* Footer */
+footer {
+  background: #2F3968;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-info p,
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.social-links a:hover {
+  color: #CBAF6D;
+}
+
+.copyright {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.el-icon {
+  font-size: 18px;
+}
+/* Element Plus 轮播图自定义样式 */
+.el-carousel {
+  width: 100%;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 自定义轮播图箭头样式 */
+.el-carousel__arrow {
+  background-color: rgba(47, 57, 104, 0.8) !important;
+}
+
+.el-carousel__arrow:hover {
+  background-color: #2F3968 !important;
+}
+
+/* 自定义指示器样式 */
+.el-carousel__indicators {
+  bottom: 20px;
+}
+
+.el-carousel__button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 添加响应式间距 */
+.el-row {
+  margin-bottom: 20px;
+}
+
+.el-col {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .contact-info,
+  .social-links {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .social-links a {
+    justify-content: center;
+  }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
