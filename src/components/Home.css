@@ -50,7 +50,7 @@ nav {
   justify-content: space-between;
   background-color: #2F3968;
   padding: 5px 30px;
-  position: relative;  /* 添加相对定位 */
+  position: relative;
 }
 
 .nav-links {
@@ -60,12 +60,7 @@ nav {
 }
 
 .menu-btn {
-  display: none;  /* 默认隐藏汉堡菜单按钮 */
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
+  display: none !important; /* 默认隐藏汉堡菜单按钮，使用 !important 覆盖 Element Plus 的样式 */
 }
 
 nav .logo img {
@@ -193,11 +188,14 @@ h2 {
   }
 
   .menu-btn {
-    display: block;  /* 显示汉堡菜单按钮 */
+    display: flex !important; /* 在移动端显示汉堡菜单按钮 */
+    border: none !important;
+    padding: 0 !important;
+    color: #CBAF6D !important;
   }
 
   .nav-links {
-    display: none;  /* 默认隐藏导航链接 */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -209,17 +207,18 @@ h2 {
   }
 
   .nav-links.show {
-    display: flex;  /* 显示导航链接 */
+    display: flex;
   }
 
   .nav-links a {
     padding: 10px 0;
     width: 100%;
     text-align: center;
+    margin-left: 0; /* 移除左边距 */
   }
 
   nav .logo img {
-    width: 120px;  /* 调整 logo 大小 */
+    width: 120px;
     height: auto;
   }
 }

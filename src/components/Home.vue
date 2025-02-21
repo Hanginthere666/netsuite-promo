@@ -6,8 +6,8 @@
                     <div class="logo">
                         <img src="../assets/logo-wihte.png" alt="Logo">
                     </div>
-                    <el-button class="menu-btn" @click="showMenu = !showMenu">
-                        <el-icon><Menu /></el-icon>
+                    <el-button class="menu-btn" @click="showMenu = !showMenu" text>
+                        <el-icon size="24"><Menu /></el-icon>
                     </el-button>
                     <div class="nav-links" :class="{ 'show': showMenu }">
                         <a href="#consulting">CONSULTING</a>
