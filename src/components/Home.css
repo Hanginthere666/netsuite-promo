@@ -49,9 +49,23 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: #2F3968;
-  /* 设置为半透明 */
-  /*导航栏颜色 备用1：#4a7a6e  #2F3968 #e8e8e8*/
   padding: 5px 30px;
+  position: relative;  /* 添加相对定位 */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-btn {
+  display: none;  /* 默认隐藏汉堡菜单按钮 */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 nav .logo img {
@@ -177,6 +191,42 @@ h2 {
     width: 90%;
     text-align: center;
   }
+
+  .menu-btn {
+    display: block;  /* 显示汉堡菜单按钮 */
+  }
+
+  .nav-links {
+    display: none;  /* 默认隐藏导航链接 */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #2F3968;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;  /* 显示导航链接 */
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav .logo img {
+    width: 120px;  /* 调整 logo 大小 */
+    height: auto;
+  }
+}
+
+/* 添加过渡动画 */
+.nav-links {
+  transition: all 0.3s ease;
 }
 
 /* Customer Logos */

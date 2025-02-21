@@ -6,10 +6,15 @@
                     <div class="logo">
                         <img src="../assets/logo-wihte.png" alt="Logo">
                     </div>
-                    <a href="#consulting">CONSULTING</a>
-                    <a href="#serversText">SERVERS</a>
-                    <a href="#customers">CUSTOMERS</a>
-                    <a href="#contact">Contact</a>
+                    <el-button class="menu-btn" @click="showMenu = !showMenu">
+                        <el-icon><Menu /></el-icon>
+                    </el-button>
+                    <div class="nav-links" :class="{ 'show': showMenu }">
+                        <a href="#consulting">CONSULTING</a>
+                        <a href="#serversText">SERVERS</a>
+                        <a href="#customers">CUSTOMERS</a>
+                        <a href="#contact">Contact</a>
+                    </div>
                 </nav>
             </el-header>
             <el-main>
@@ -19,11 +24,6 @@
                             <img :src="img.url" :alt="img.alt" class="carousel-img">
                         </el-carousel-item>
                     </el-carousel>
-                    <!-- <el-carousel :interval="4000" type="card" height="70vh">
-                        <el-carousel-item v-for="(img, index) in carouselImages" :key="index">
-                            <img :src="img.url" :alt="img.alt" class="carousel-img">
-                        </el-carousel-item>
-                    </el-carousel> -->
                 </section>
                 <!-- 咨询服务 -->
                 <section id="consulting">
@@ -132,9 +132,6 @@
             </el-footer>
         </el-container>
     </div>
-
-
-
 </template>
 
 <script setup>
@@ -153,9 +150,9 @@ import serverImage4 from '../assets/servers-image-4.png';
 import serverImage5 from '../assets/servers-image-5.png';
 import serverImage6 from '../assets/servers-image-6.png';
 import '../components/Home.css';
+import { Menu } from '@element-plus/icons-vue'
 
 const carouselImages = ref([
-
     { url: banner2, alt: '专业团队支持' },
     { url: banner3, alt: '全球服务覆盖' },
     { url: banner1, alt: 'NetSuite 咨询服务' },
@@ -216,6 +213,8 @@ const serverServices = ref([
         description: 'Provide comprehensive user training and technical support to ensure the smooth operation and continuous optimization of the system.'
     }
 ]);
+
+const showMenu = ref(false);
 </script>
 
 <style scoped>
