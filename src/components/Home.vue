@@ -92,35 +92,21 @@
                     <el-row class="footer-content">
                         <el-col :xs="24" :sm="12" class="contact-info">
                             <p>
-                                <el-icon>
-                                    <Message />
-                                </el-icon>
+                                <el-icon><Message /></el-icon>
                                 Contact: yujian.renqiuhang@gmail.com
-                            </p>
-                            <p>
-                                <el-icon>
-                                    <Phone />
-                                </el-icon>
-                                +86 188 0982 8586
                             </p>
                         </el-col>
                         <el-col :xs="24" :sm="12" class="social-links">
                             <a href="https://t.me/netsuiteuser" target="_blank">
-                                <el-icon>
-                                    <Promotion />
-                                </el-icon>
+                                <el-icon><Promotion /></el-icon>
                                 Telegram
                             </a>
                             <a href="https://twitter.com" target="_blank">
-                                <el-icon>
-                                    <ChatLineRound />
-                                </el-icon>
+                                <el-icon><ChatLineRound /></el-icon>
                                 Twitter
                             </a>
                             <a href="https://linkedin.com" target="_blank">
-                                <el-icon>
-                                    <Connection />
-                                </el-icon>
+                                <el-icon><Connection /></el-icon>
                                 LinkedIn
                             </a>
                         </el-col>
