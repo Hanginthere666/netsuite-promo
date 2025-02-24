@@ -415,3 +415,22 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+/* 添加路由链接样式 */
+.router-link-active {
+  color: #CBAF6D !important;
+}
+
+.router-link-exact-active {
+  font-weight: bold;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #CBAF6D;
+}

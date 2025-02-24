@@ -1,16 +1,24 @@
 <template>
-  <div id="app">
-    <Home />
-  </div>
+  <el-config-provider :locale="zhCn">
+    <div id="app">
+      <router-view></router-view>
+    </div>
+  </el-config-provider>
 </template>
 
 <script>
-import Home from './components/Home.vue';
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 export default {
   name: 'App',
   components: {
-    Home
+    ElConfigProvider
+  },
+  setup() {
+    return {
+      zhCn
+    }
   }
 };
 </script>

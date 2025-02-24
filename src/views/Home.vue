@@ -1,30 +1,18 @@
 <template>
-    <div class="common-layout">
-        <el-container>
-            <el-header style="padding: 0;">
-                <nav>
-                    <div class="logo">
-                        <img src="../assets/logo-wihte.png" alt="Logo">
-                    </div>
-                    <el-button class="menu-btn" @click="showMenu = !showMenu" text>
-                        <el-icon size="24"><Menu /></el-icon>
-                    </el-button>
-                    <div class="nav-links" :class="{ 'show': showMenu }">
-                        <a href="#consulting">CONSULTING</a>
-                        <a href="#serversText">SERVERS</a>
-                        <a href="#customers">CUSTOMERS</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </nav>
-            </el-header>
+    <div class="home">
+       
+        <NavBar />
+        <el-container class="full-width">
+            <div class="hero-section">
+                <picture class="background-image">
+                    <!-- 移动端图片 (建议尺寸 750x1334 或 375x667) -->
+                    <source media="(max-width: 768px)" srcset="../assets/banner2.png">
+                    <!-- 桌面端图片 (建议尺寸 1920x1080 或更大) -->
+                    <img src="../assets/banner2-pc.png" alt="banner">
+                </picture>
+            </div>
             <el-main>
-                <section id="banner">
-                    <el-carousel height="70vh" :interval="3000" arrow="always">
-                        <el-carousel-item v-for="(img, index) in carouselImages" :key="index">
-                            <img :src="img.url" :alt="img.alt" class="carousel-img">
-                        </el-carousel-item>
-                    </el-carousel>
-                </section>
+                <!-- <Carousel /> -->
                 <!-- 咨询服务 -->
                 <section id="consulting">
                     <div class="consulting-container">
@@ -92,21 +80,29 @@
                     <el-row class="footer-content">
                         <el-col :xs="24" :sm="12" class="contact-info">
                             <p>
-                                <el-icon><Message /></el-icon>
+                                <el-icon>
+                                    <Message />
+                                </el-icon>
                                 Contact: yujian.renqiuhang@gmail.com
                             </p>
                         </el-col>
                         <el-col :xs="24" :sm="12" class="social-links">
                             <a href="https://t.me/netsuiteuser" target="_blank">
-                                <el-icon><Promotion /></el-icon>
+                                <el-icon>
+                                    <Promotion />
+                                </el-icon>
                                 Telegram
                             </a>
                             <a href="https://twitter.com" target="_blank">
-                                <el-icon><ChatLineRound /></el-icon>
+                                <el-icon>
+                                    <ChatLineRound />
+                                </el-icon>
                                 Twitter
                             </a>
                             <a href="https://linkedin.com" target="_blank">
-                                <el-icon><Connection /></el-icon>
+                                <el-icon>
+                                    <Connection />
+                                </el-icon>
                                 LinkedIn
                             </a>
                         </el-col>
@@ -122,9 +118,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import banner1 from '../assets/banner1.png';
-import banner2 from '../assets/banner2.png';
-import banner3 from '../assets/banner3.png';
+import NavBar from '../components/NavBar.vue'
+import Carousel from '../components/Carousel.vue'
 import customer1 from '../assets/customer-1.jpg';
 import customer2 from '../assets/customer-2.jpg';
 import customer3 from '../assets/customer-3.png';
@@ -135,14 +130,10 @@ import serverImage3 from '../assets/servers-image-3.png';
 import serverImage4 from '../assets/servers-image-4.png';
 import serverImage5 from '../assets/servers-image-5.png';
 import serverImage6 from '../assets/servers-image-6.png';
-import '../components/Home.css';
+import '../views/Home.css';
 import { Menu } from '@element-plus/icons-vue'
-
-const carouselImages = ref([
-    { url: banner2, alt: '专业团队支持' },
-    { url: banner3, alt: '全球服务覆盖' },
-    { url: banner1, alt: 'NetSuite 咨询服务' },
-])
+import { useTransition } from '@vueuse/core'
+import { ChatLineRound, Male } from '@element-plus/icons-vue'
 
 const logoList = ref([
     { src: customer1, alt: 'RSM' },
@@ -154,9 +145,6 @@ const logoList = ref([
     { src: customer3, alt: 'slg lighting' },
     { src: customer4, alt: 'universal' },
 ])
-
-import { useTransition } from '@vueuse/core'
-import { ChatLineRound, Male } from '@element-plus/icons-vue'
 
 const source = ref(0)
 const outputValue = useTransition(source, {
@@ -199,16 +187,147 @@ const serverServices = ref([
         description: 'Provide comprehensive user training and technical support to ensure the smooth operation and continuous optimization of the system.'
     }
 ]);
-
-const showMenu = ref(false);
 </script>
 
+<style>
+/* 添加全局样式 */
+.full-width {
+    width: 100%;
+}
+
+.el-container {
+    min-height: 100vh;
+}
+</style>
+
 <style scoped>
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+.background-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 保持图片比例填充容器 */
+}
+
+/* 确保主要内容区域有白色背景 */
+.el-main {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    padding-top: 0;
+}
+
 h2 {
     height: 100px;
 }
 
 .el-col {
     text-align: center;
+}
+
+.el-button {
+    color: #CBAF6D;
+}
+
+.nav-container {
+    max-width: 1200px;
+    /* 1920px - 360px * 2 = 1200px */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.nav-logo-wrapper {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo-wrapper a {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 48px;
+    margin-right: 20px;
+}
+
+.el-menu {
+    border-bottom: none;
+    width: 100%;
+}
+
+.el-menu-item {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.el-menu-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 响应式布局 */
+@media (max-width: 1920px) {
+    .nav-container {
+        max-width: calc(100% - 720px);
+        /* 动态计算内容区域宽度 */
+    }
+}
+
+@media (max-width: 1200px) {
+    .nav-container {
+        max-width: calc(100% - 40px);
+        /* 小屏幕时保留最小边距 */
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 600px;
+        margin-bottom: 0;
+    }
+
+    .background-image img {
+        object-fit: contain;
+        object-position: center;
+        background-color: #fff;
+    }
+
+    /* 调整第一个section的间距 */
+    #consulting {
+        margin-top: 0;
+        padding-top: 20px;
+    }
+}
+
+/* 平板端优化 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-section {
+        height: 90vh;
+    }
 }
 </style>
